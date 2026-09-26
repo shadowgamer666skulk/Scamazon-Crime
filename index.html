@@ -877,7 +877,105 @@ setInterval(updateTimer, 1000);
 updateTimer();
 
 </script>
+<script>
+let logoClicks = 0;
+let logoTimer;
 
+function secretLogoClick() {
+    logoClicks++;
+
+    clearTimeout(logoTimer);
+    logoTimer = setTimeout(() => {
+        logoClicks = 0;
+    }, 2000);
+
+    if (logoClicks >= 7) {
+        logoClicks = 0;
+
+        alert("🤫 SECRET UNLOCKED!\n\nYou found the forbidden Scamazon warehouse.");
+
+        const secret = document.getElementById("secret-products");
+
+        if (secret) {
+            secret.style.display = "grid";
+        }
+    }
+}
+</script>
+<h1 onclick="secretLogoClick()" style="cursor:pointer;">
+    Scamazon Crime
+</h1>
+    <div id="secret-products" class="products" style="display:none;">
+
+    <div class="product">
+        <div class="badge">🤫 SECRET</div>
+
+        <div class="product-image">👁️</div>
+
+        <h3>Definitely Not A Secret</h3>
+
+        <div class="stars">★★★★★</div>
+
+        <div class="price">$6.66</div>
+
+        <p>There is absolutely nothing suspicious about this product.</p>
+
+        <div class="scam">
+            Scam Score: <strong>100/100</strong>
+        </div>
+
+        <button onclick="addToCart('Definitely Not A Secret', 6.66)">
+            Add to Cart
+        </button>
+    </div>
+
+
+    <div class="product">
+        <div class="badge">ULTRA SECRET</div>
+
+        <div class="product-image">📦</div>
+
+        <h3>Empty Box</h3>
+
+        <div class="stars">★★★★★</div>
+
+        <div class="price">$999.99</div>
+
+        <p>Congratulations! You bought an empty box.</p>
+
+        <div class="scam">
+            Scam Score: <strong>999/100</strong>
+        </div>
+
+        <button onclick="addToCart('Empty Box', 999.99)">
+            Add to Cart
+        </button>
+    </div>
+
+
+    <div class="product">
+        <div class="badge">⚠️ FORBIDDEN</div>
+
+        <div class="product-image">🗿</div>
+
+        <h3>The Forbidden Product</h3>
+
+        <div class="stars">★★★★★</div>
+
+        <div class="price">$0.00</div>
+
+        <p>You weren't supposed to find this.</p>
+
+        <div class="scam">
+            Scam Score: <strong>???/100</strong>
+        </div>
+
+        <button onclick="addToCart('The Forbidden Product', 0)">
+            Add to Cart
+        </button>
+    </div>
+
+</div>
 </body>
 </html>
 ```
