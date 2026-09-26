@@ -1,16 +1,21 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scamazon Prime™</title>
+
+<title>Scamazon Crime™</title>
 
 <style>
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -19,7 +24,10 @@ body {
     color: #111;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
+
 header {
     background: #131921;
     color: white;
@@ -37,6 +45,8 @@ header {
     font-weight: 900;
     color: #ff9900;
     white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
 }
 
 .logo span {
@@ -54,6 +64,7 @@ header {
     padding: 12px;
     border: none;
     font-size: 16px;
+    outline: none;
 }
 
 .search button {
@@ -89,14 +100,22 @@ header {
     cursor: pointer;
 }
 
-/* PRIME BAR */
+.cart:hover {
+    transform: scale(1.1);
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
 .primebar {
     background: #232f3e;
     color: white;
-    padding: 9px 25px;
+    padding: 10px 25px;
     display: flex;
     gap: 25px;
     font-size: 14px;
+    flex-wrap: wrap;
 }
 
 .primebar span {
@@ -107,14 +126,29 @@ header {
     color: #ff9900;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
+
 .hero {
-    min-height: 360px;
+    min-height: 370px;
+
     background:
-        linear-gradient(90deg, rgba(0,0,0,.8), rgba(0,0,0,.2)),
-        linear-gradient(135deg, #ff9900, #ff4500);
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.85),
+            rgba(0,0,0,.2)
+        ),
+        linear-gradient(
+            135deg,
+            #ff9900,
+            #ff4500
+        );
+
     color: white;
+
     padding: 70px 8%;
+
     display: flex;
     align-items: center;
 }
@@ -144,7 +178,10 @@ header {
     background: #f7ca00;
 }
 
-/* WARNING */
+/* =========================
+   WARNING
+========================= */
+
 .warning {
     background: #fff3cd;
     border: 2px solid #ffcc00;
@@ -153,9 +190,12 @@ header {
     font-weight: bold;
 }
 
-/* CONTENT */
+/* =========================
+   CONTAINER
+========================= */
+
 .container {
-    max-width: 1400px;
+    max-width: 1450px;
     margin: auto;
     padding: 25px;
 }
@@ -165,51 +205,132 @@ header {
     margin-bottom: 18px;
 }
 
-/* PRODUCTS */
+/* =========================
+   DEALS
+========================= */
+
+.deals {
+    background: white;
+    padding: 25px;
+    margin: 25px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.15);
+}
+
+.timer {
+    color: #b12704;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+/* =========================
+   CATEGORY BAR
+========================= */
+
+.categories {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.category {
+    background: white;
+    border: 1px solid #bbb;
+    border-radius: 20px;
+    padding: 10px 18px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.category:hover {
+    background: #ff9900;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
 .products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 18px;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(240px, 1fr)
+        );
+
+    gap: 20px;
 }
 
 .product {
     background: white;
     padding: 18px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,.15);
+    border-radius: 7px;
+
+    box-shadow:
+        0 2px 5px rgba(0,0,0,.15);
+
     position: relative;
+
     transition: .2s;
 }
 
 .product:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 5px 15px rgba(0,0,0,.2);
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 7px 18px rgba(0,0,0,.25);
 }
 
 .product-image {
     height: 190px;
+
     background: #f7f7f7;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     font-size: 90px;
+
     margin-bottom: 15px;
+
+    border-radius: 5px;
 }
 
 .badge {
     position: absolute;
+
     top: 10px;
     left: 10px;
+
     background: #cc0c39;
+
     color: white;
+
     padding: 5px 8px;
+
     font-size: 12px;
+
     font-weight: bold;
+
+    z-index: 2;
 }
 
 .product h3 {
-    font-size: 17px;
+    font-size: 18px;
     margin-bottom: 7px;
+}
+
+.description {
+    color: #555;
+    font-size: 13px;
+    min-height: 38px;
+    margin-bottom: 8px;
 }
 
 .stars {
@@ -236,11 +357,17 @@ header {
 
 .product button {
     width: 100%;
+
     padding: 11px;
+
     border: none;
+
     border-radius: 20px;
+
     background: #ffd814;
+
     cursor: pointer;
+
     font-weight: bold;
 }
 
@@ -248,7 +375,10 @@ header {
     background: #f7ca00;
 }
 
-/* SCAM SCORE */
+/* =========================
+   SCAM SCORE
+========================= */
+
 .scam {
     margin: 12px 0;
     font-size: 12px;
@@ -256,43 +386,83 @@ header {
 
 .scam-bar {
     height: 10px;
+
     background: #ddd;
+
     border-radius: 10px;
+
     overflow: hidden;
+
+    margin-top: 4px;
 }
 
 .scam-fill {
     height: 100%;
+
     background: #d00000;
 }
 
-/* DEALS */
-.deals {
-    background: white;
+/* =========================
+   SECRET PRODUCTS
+========================= */
+
+.secret-section {
+    display: none;
+
+    margin-top: 45px;
+
     padding: 25px;
-    margin: 25px 0;
-    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #111,
+            #25102d
+        );
+
+    border-radius: 10px;
+
+    color: white;
 }
 
-.timer {
-    color: #b12704;
-    font-size: 25px;
-    font-weight: bold;
+.secret-section.unlocked {
+    display: block;
 }
 
-/* CART */
+.secret-title {
+    color: #ff00ff;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+/* =========================
+   CART
+========================= */
+
 .cart-panel {
     position: fixed;
-    right: -420px;
+
+    right: -430px;
+
     top: 0;
-    width: 400px;
+
+    width: 410px;
+
     max-width: 95%;
+
     height: 100vh;
+
     background: white;
+
     z-index: 500;
-    box-shadow: -5px 0 20px rgba(0,0,0,.3);
+
+    box-shadow:
+        -5px 0 20px rgba(0,0,0,.3);
+
     padding: 25px;
+
     transition: .3s;
+
     overflow-y: auto;
 }
 
@@ -302,8 +472,11 @@ header {
 
 .cart-header {
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
+
     margin-bottom: 20px;
 }
 
@@ -317,35 +490,70 @@ header {
     padding: 15px 0;
 }
 
-.checkout {
-    width: 100%;
-    padding: 15px;
-    margin-top: 20px;
-    background: #ff9900;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
+.cart-item button {
+    background: #eee;
+    border: 1px solid #aaa;
+    padding: 5px 10px;
     cursor: pointer;
 }
 
-/* MODAL */
+.checkout {
+    width: 100%;
+
+    padding: 15px;
+
+    margin-top: 20px;
+
+    background: #ff9900;
+
+    border: none;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.checkout:hover {
+    background: #ffad33;
+}
+
+/* =========================
+   MODAL
+========================= */
+
 .modal {
     display: none;
+
     position: fixed;
+
     z-index: 1000;
+
     inset: 0;
-    background: rgba(0,0,0,.7);
+
+    background: rgba(0,0,0,.75);
+
     justify-content: center;
+
     align-items: center;
 }
 
 .modal-content {
     background: white;
+
     width: 500px;
+
     max-width: 90%;
-    padding: 30px;
+
+    padding: 35px;
+
     border-radius: 10px;
+
     text-align: center;
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.4);
 }
 
 .modal-content h2 {
@@ -355,29 +563,89 @@ header {
 
 .modal-content button {
     margin-top: 20px;
+
     padding: 12px 30px;
+
     background: #ffd814;
+
     border: none;
+
     border-radius: 20px;
+
     cursor: pointer;
+
     font-weight: bold;
 }
 
-/* FOOTER */
+/* =========================
+   SECRET POPUP
+========================= */
+
+.secret-popup {
+    position: fixed;
+
+    left: 50%;
+
+    top: 20px;
+
+    transform:
+        translateX(-50%)
+        translateY(-150px);
+
+    background: #111;
+
+    color: white;
+
+    padding: 18px 25px;
+
+    border-radius: 10px;
+
+    z-index: 5000;
+
+    border: 2px solid #ff00ff;
+
+    box-shadow:
+        0 5px 30px rgba(255,0,255,.4);
+
+    transition: .4s;
+
+    text-align: center;
+}
+
+.secret-popup.show {
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
 footer {
     background: #131921;
+
     color: white;
+
     text-align: center;
-    padding: 40px;
+
+    padding: 50px;
+
     margin-top: 40px;
 }
 
 footer h2 {
     color: #ff9900;
+
     margin-bottom: 10px;
 }
 
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:700px) {
+
     header {
         flex-wrap: wrap;
     }
@@ -398,85 +666,283 @@ footer h2 {
     .hero h1 {
         font-size: 50px;
     }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
 }
+
 </style>
 </head>
 
 <body>
 
+
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
-    <div class="logo">
+
+    <div
+        class="logo"
+        onclick="secretLogoClick()"
+        title="Definitely just a logo."
+    >
         SCAMAZON <span>PRIME™</span>
     </div>
 
     <div class="search">
-        <input id="searchInput" type="text"
-               placeholder="Search for something suspicious...">
-        <button onclick="searchProducts()">🔍</button>
+
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="Search for something suspicious..."
+        >
+
+        <button onclick="searchProducts()">
+            🔍
+        </button>
+
     </div>
 
     <div class="nav">
+
         <div>
-            <small>Hello, definitely real customer</small>
-            <strong>Account & Lists</strong>
+            <small>
+                Hello, definitely real customer
+            </small>
+
+            <strong>
+                Account & Lists
+            </strong>
         </div>
 
         <div>
-            <small>Returns</small>
-            <strong>& Orders</strong>
+            <small>
+                Returns
+            </small>
+
+            <strong>
+                & Orders
+            </strong>
         </div>
 
-        <div class="cart" onclick="toggleCart()">
-            🛒 <span id="cartCount">0</span>
+        <div
+            class="cart"
+            onclick="toggleCart()"
+        >
+            🛒
+            <span id="cartCount">0</span>
         </div>
+
     </div>
+
 </header>
 
+
+<!-- =========================
+     NAV BAR
+========================= -->
+
 <div class="primebar">
-    <span>☰ All</span>
-    <span>Today's Deals</span>
-    <span>Customer Service</span>
-    <span>Registry</span>
-    <span>Gift Cards</span>
-    <span>Sell</span>
+
+    <span onclick="scrollToProducts()">
+        ☰ All
+    </span>
+
+    <span onclick="scrollToProducts()">
+        Today's Deals
+    </span>
+
+    <span>
+        Customer Service
+    </span>
+
+    <span>
+        Registry
+    </span>
+
+    <span>
+        Gift Cards
+    </span>
+
+    <span>
+        Sell
+    </span>
+
 </div>
+
+
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
+
     <div>
-        <h1>WELCOME TO<br>SCAMAZON.</h1>
-        <p>Everything you need. Probably.</p>
-        <button onclick="scrollToProducts()">SHOP THE QUESTIONABLE DEALS →</button>
+
+        <h1>
+            WELCOME TO<br>
+            SCAMAZON.
+        </h1>
+
+        <p>
+            Everything you need. Probably.
+        </p>
+
+        <button onclick="scrollToProducts()">
+            SHOP THE QUESTIONABLE DEALS →
+        </button>
+
     </div>
+
 </section>
 
+
 <div class="warning">
-    ⚠️ WARNING: Scamazon Prime is not responsible for lost money, dignity, or common sense.
+
+    ⚠️ WARNING:
+    Scamazon Prime is not responsible for lost money,
+    dignity, or common sense.
+
 </div>
+
+
+<!-- =========================
+     MAIN
+========================= -->
 
 <div class="container">
 
+
+    <!-- DEALS -->
+
     <div class="deals">
-        <h2 class="section-title">🔥 DEALS THAT DEFINITELY WON'T COME BACK</h2>
-        <p>These deals disappear when the timer reaches zero.</p>
-        <div class="timer" id="timer">09:59:59</div>
+
+        <h2 class="section-title">
+
+            🔥 DEALS THAT DEFINITELY
+            WON'T COME BACK
+
+        </h2>
+
+        <p>
+            These deals disappear when the timer reaches zero.
+        </p>
+
+        <div
+            class="timer"
+            id="timer"
+        >
+            09:59:59
+        </div>
+
     </div>
 
-    <h2 class="section-title" id="productsTitle">
+
+    <!-- CATEGORIES -->
+
+    <div class="categories">
+
+        <div
+            class="category"
+            onclick="filterCategory('all')"
+        >
+            🛒 All
+        </div>
+
+        <div
+            class="category"
+            onclick="filterCategory('food')"
+        >
+            🍔 Food
+        </div>
+
+        <div
+            class="category"
+            onclick="filterCategory('tech')"
+        >
+            💻 Tech
+        </div>
+
+        <div
+            class="category"
+            onclick="filterCategory('weird')"
+        >
+            🤨 Weird
+        </div>
+
+        <div
+            class="category"
+            onclick="filterCategory('home')"
+        >
+            🏠 Home
+        </div>
+
+        <div
+            class="category"
+            onclick="filterCategory('danger')"
+        >
+            ⚠️ Questionable
+        </div>
+
+    </div>
+
+
+    <h2
+        class="section-title"
+        id="productsTitle"
+    >
         Highly Questionable Products
     </h2>
 
-    <div class="products" id="products">
 
-        <div class="product" data-name="invisible gaming chair">
-            <div class="badge">97% OFF</div>
-            <div class="product-image">🪑</div>
+    <!-- =========================
+         PRODUCTS
+    ========================= -->
 
-            <h3>Invisible Gaming Chair™</h3>
+    <div
+        class="products"
+        id="products"
+    >
 
-            <div class="stars">★★★★★</div>
 
-            <div class="price">$4.99</div>
-            <div class="old-price">$199.99</div>
+        <!-- 1 -->
+
+        <div
+            class="product"
+            data-name="invisible gaming chair"
+            data-category="tech"
+        >
+
+            <div class="badge">
+                97% OFF
+            </div>
+
+            <div class="product-image">
+                🪑
+            </div>
+
+            <h3>
+                Invisible Gaming Chair™
+            </h3>
+
+            <p class="description">
+                You can't see it, but your back can definitely feel it.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                $4.99
+            </div>
+
+            <div class="old-price">
+                $199.99
+            </div>
 
             <div class="delivery">
                 ✓ FREE Prime Delivery*
@@ -484,26 +950,55 @@ footer h2 {
 
             <div class="scam">
                 Scam Score: 98/100
+
                 <div class="scam-bar">
-                    <div class="scam-fill" style="width:98%"></div>
+                    <div
+                        class="scam-fill"
+                        style="width:98%"
+                    ></div>
                 </div>
             </div>
 
-            <button onclick="addToCart('Invisible Gaming Chair™', 4.99)">
+            <button
+                onclick="addToCart('Invisible Gaming Chair™',4.99)"
+            >
                 Add to Cart
             </button>
+
         </div>
 
 
-        <div class="product" data-name="usb c usb c cable">
-            <div class="badge">HOT</div>
-            <div class="product-image">🔌</div>
+        <!-- 2 -->
 
-            <h3>USB-C USB-C USB-C Cable</h3>
+        <div
+            class="product"
+            data-name="usb c usb c cable"
+            data-category="tech"
+        >
 
-            <div class="stars">★★★★☆</div>
+            <div class="badge">
+                HOT
+            </div>
 
-            <div class="price">$39.99</div>
+            <div class="product-image">
+                🔌
+            </div>
+
+            <h3>
+                USB-C USB-C USB-C Cable
+            </h3>
+
+            <p class="description">
+                Three USB-C connectors. Zero explanation.
+            </p>
+
+            <div class="stars">
+                ★★★★☆
+            </div>
+
+            <div class="price">
+                $39.99
+            </div>
 
             <div class="delivery">
                 ✓ Arrives yesterday
@@ -511,27 +1006,59 @@ footer h2 {
 
             <div class="scam">
                 Scam Score: 76/100
+
                 <div class="scam-bar">
-                    <div class="scam-fill" style="width:76%"></div>
+                    <div
+                        class="scam-fill"
+                        style="width:76%"
+                    ></div>
                 </div>
             </div>
 
-            <button onclick="addToCart('USB-C USB-C USB-C Cable', 39.99)">
+            <button
+                onclick="addToCart('USB-C USB-C USB-C Cable',39.99)"
+            >
                 Add to Cart
             </button>
+
         </div>
 
 
-        <div class="product" data-name="mystery box">
-            <div class="badge">MYSTERY</div>
-            <div class="product-image">📦</div>
+        <!-- 3 -->
 
-            <h3>Mystery Box™</h3>
+        <div
+            class="product"
+            data-name="mystery box"
+            data-category="weird"
+        >
 
-            <div class="stars">★★★★★</div>
+            <div class="badge">
+                MYSTERY
+            </div>
 
-            <div class="price">$0.01</div>
-            <div class="old-price">$999.99</div>
+            <div class="product-image">
+                📦
+            </div>
+
+            <h3>
+                Mystery Box™
+            </h3>
+
+            <p class="description">
+                We don't know what's inside. We also don't want to know.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                $0.01
+            </div>
+
+            <div class="old-price">
+                $999.99
+            </div>
 
             <div class="delivery">
                 Shipping: $49.99
@@ -539,26 +1066,55 @@ footer h2 {
 
             <div class="scam">
                 Scam Score: 100/100
+
                 <div class="scam-bar">
-                    <div class="scam-fill" style="width:100%"></div>
+                    <div
+                        class="scam-fill"
+                        style="width:100%"
+                    ></div>
                 </div>
             </div>
 
-            <button onclick="addToCart('Mystery Box™', 0.01)">
+            <button
+                onclick="addToCart('Mystery Box™',0.01)"
+            >
                 Add to Cart
             </button>
+
         </div>
 
 
-        <div class="product" data-name="premium air">
-            <div class="badge">FRESH</div>
-            <div class="product-image">💨</div>
+        <!-- 4 -->
 
-            <h3>Premium Air — 16 oz</h3>
+        <div
+            class="product"
+            data-name="premium air"
+            data-category="weird"
+        >
 
-            <div class="stars">★★★★★</div>
+            <div class="badge">
+                FRESH
+            </div>
 
-            <div class="price">$12.99</div>
+            <div class="product-image">
+                💨
+            </div>
+
+            <h3>
+                Premium Air — 16 oz
+            </h3>
+
+            <p class="description">
+                Freshly collected air from somewhere.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                $12.99
+            </div>
 
             <div class="delivery">
                 ✓ Freshly harvested
@@ -566,26 +1122,55 @@ footer h2 {
 
             <div class="scam">
                 Scam Score: 91/100
+
                 <div class="scam-bar">
-                    <div class="scam-fill" style="width:91%"></div>
+                    <div
+                        class="scam-fill"
+                        style="width:91%"
+                    ></div>
                 </div>
             </div>
 
-            <button onclick="addToCart('Premium Air — 16 oz', 12.99)">
+            <button
+                onclick="addToCart('Premium Air — 16 oz',12.99)"
+            >
                 Add to Cart
             </button>
+
         </div>
 
 
-        <div class="product" data-name="rtx 9090 graphics card">
-            <div class="badge">100% REAL*</div>
-            <div class="product-image">🎮</div>
+        <!-- 5 -->
 
-            <h3>Definitely Real RTX 9090</h3>
+        <div
+            class="product"
+            data-name="rtx 9090 graphics card"
+            data-category="tech"
+        >
 
-            <div class="stars">★★☆☆☆</div>
+            <div class="badge">
+                100% REAL*
+            </div>
 
-            <div class="price">$6.99</div>
+            <div class="product-image">
+                🎮
+            </div>
+
+            <h3>
+                Definitely Real RTX 9090
+            </h3>
+
+            <p class="description">
+                GPU-shaped object. Probably.
+            </p>
+
+            <div class="stars">
+                ★★☆☆☆
+            </div>
+
+            <div class="price">
+                $6.99
+            </div>
 
             <div class="delivery">
                 ✓ GPU-shaped object included
@@ -593,26 +1178,55 @@ footer h2 {
 
             <div class="scam">
                 Scam Score: 99/100
+
                 <div class="scam-bar">
-                    <div class="scam-fill" style="width:99%"></div>
+                    <div
+                        class="scam-fill"
+                        style="width:99%"
+                    ></div>
                 </div>
             </div>
 
-            <button onclick="addToCart('Definitely Real RTX 9090', 6.99)">
+            <button
+                onclick="addToCart('Definitely Real RTX 9090',6.99)"
+            >
                 Add to Cart
             </button>
+
         </div>
 
 
-        <div class="product" data-name="potato">
-            <div class="badge">LIMITED</div>
-            <div class="product-image">🥔</div>
+        <!-- 6 -->
 
-            <h3>One (1) Premium Potato</h3>
+        <div
+            class="product"
+            data-name="premium potato"
+            data-category="food"
+        >
 
-            <div class="stars">★★★★★</div>
+            <div class="badge">
+                LIMITED
+            </div>
 
-            <div class="price">$89999999999.99</div>
+            <div class="product-image">
+                🥔
+            </div>
+
+            <h3>
+                One (1) Premium Potato
+            </h3>
+
+            <p class="description">
+                A potato. A very expensive potato.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                $89999999999.99
+            </div>
 
             <div class="delivery">
                 ✓ Potato delivered tomorrow
@@ -620,57 +1234,1665 @@ footer h2 {
 
             <div class="scam">
                 Scam Score: 87/100
+
                 <div class="scam-bar">
-                    <div class="scam-fill" style="width:87%"></div>
+                    <div
+                        class="scam-fill"
+                        style="width:87%"
+                    ></div>
                 </div>
             </div>
 
-            <button onclick="addToCart('Premium Potato', 899999999999.99)">
+            <button
+                onclick="addToCart('Premium Potato',89999999999.99)"
+            >
                 Add to Cart
             </button>
+
         </div>
 
+
+        <!-- 7 -->
+
+        <div
+            class="product"
+            data-name="muppet screams"
+            data-category="weird"
+        >
+
+            <div class="badge">
+                SCREAM DEAL
+            </div>
+
+            <div class="product-image">
+                🐸
+            </div>
+
+            <h3>
+                Muppet Screams
+            </h3>
+
+            <p class="description">
+                One bag of concentrated Muppet screaming.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                $29.99
+            </div>
+
+            <div class="delivery">
+                ✓ Screaming included
+            </div>
+
+            <div class="scam">
+                Scam Score: 94/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:94%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('Muppet Screams',29.99)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 8 -->
+
+        <div
+            class="product"
+            data-name="my first fire"
+            data-category="danger"
+        >
+
+            <div class="badge">
+                🔥 HOT
+            </div>
+
+            <div class="product-image">
+                🔥
+            </div>
+
+            <h3>
+                My First Fire
+            </h3>
+
+            <p class="description">
+                An extremely questionable starter fire.
+            </p>
+
+            <div class="stars">
+                ★★★★☆
+            </div>
+
+            <div class="price">
+                $500,000.00
+            </div>
+
+            <div class="delivery">
+                ✓ Fire included*
+            </div>
+
+            <div class="scam">
+                Scam Score: 97/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:97%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('My First Fire',500000)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 9 -->
+
+        <div
+            class="product"
+            data-name="virtual outside"
+            data-category="weird"
+        >
+
+            <div class="badge">
+                GO OUTSIDE
+            </div>
+
+            <div class="product-image">
+                🌳
+            </div>
+
+            <h3>
+                Virtual Outside
+            </h3>
+
+            <p class="description">
+                Experience the outdoors without actually going outside.
+            </p>
+
+            <div class="stars">
+                ★★★★☆
+            </div>
+
+            <div class="price">
+                $2.00
+            </div>
+
+            <div class="delivery">
+                ✓ Touch grass digitally
+            </div>
+
+            <div class="scam">
+                Scam Score: 89/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:89%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('Virtual Outside',2)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 10 -->
+
+        <div
+            class="product"
+            data-name="star wars pop tarts"
+            data-category="food"
+        >
+
+            <div class="badge">
+                HAN SOLO
+            </div>
+
+            <div class="product-image">
+                🥣
+            </div>
+
+            <h3>
+                Star Wars Pop Tarts
+            </h3>
+
+            <p class="description">
+                Han Solo in carbonite. For breakfast.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                $99,999.00
+            </div>
+
+            <div class="delivery">
+                ✓ Millennium Falcon delivery*
+            </div>
+
+            <div class="scam">
+                Scam Score: 96/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:96%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('Star Wars Pop Tarts',99999)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 11 -->
+
+        <div
+            class="product"
+            data-name="roast beef compass"
+            data-category="weird"
+        >
+
+            <div class="badge">
+                MEAT NAVIGATION
+            </div>
+
+            <div class="product-image">
+                🧭
+            </div>
+
+            <h3>
+                Roast Beef Compass
+            </h3>
+
+            <p class="description">
+                Always points toward roast beef.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                $29.99
+            </div>
+
+            <div class="old-price">
+                $199.99
+            </div>
+
+            <div class="delivery">
+                ✓ Beef navigation included
+            </div>
+
+            <div class="scam">
+                Scam Score: 96/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:96%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('Roast Beef Compass',29.99)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 12 -->
+
+        <div
+            class="product"
+            data-name="kfc"
+            data-category="food"
+        >
+
+            <div class="badge">
+                CHICKEN DEAL
+            </div>
+
+            <div class="product-image">
+                🍗
+            </div>
+
+            <h3>
+                KFC
+            </h3>
+
+            <p class="description">
+                Chicken. Probably.
+            </p>
+
+            <div class="stars">
+                ★★★★☆
+            </div>
+
+            <div class="price">
+                $47.99
+            </div>
+
+            <div class="delivery">
+                ✓ Chicken-ish delivery
+            </div>
+
+            <div class="scam">
+                Scam Score: 72/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:72%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('KFC',47.99)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 13 -->
+
+        <div
+            class="product"
+            data-name="ok caffeine"
+            data-category="food"
+        >
+
+            <div class="badge">
+                ENERGY
+            </div>
+
+            <div class="product-image">
+                🥤
+            </div>
+
+            <h3>
+                OK Caffeine
+            </h3>
+
+            <p class="description">
+                It's OK. The caffeine is also OK.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                $22.46
+            </div>
+
+            <div class="delivery">
+                ✓ Probably contains caffeine
+            </div>
+
+            <div class="scam">
+                Scam Score: 88/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:88%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('OK Caffeine',22.46)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 14 -->
+
+        <div
+            class="product"
+            data-name="not butter"
+            data-category="food"
+        >
+
+            <div class="badge">
+                NOT BUTTER
+            </div>
+
+            <div class="product-image">
+                🧈
+            </div>
+
+            <h3>
+                Not Butter
+            </h3>
+
+            <p class="description">
+                The jar clearly says it isn't butter.
+            </p>
+
+            <div class="stars">
+                ★★★★☆
+            </div>
+
+            <div class="price">
+                $8.99
+            </div>
+
+            <div class="delivery">
+                ✓ Definitely not butter
+            </div>
+
+            <div class="scam">
+                Scam Score: 93/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:93%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('Not Butter',8.99)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 15 -->
+
+        <div
+            class="product"
+            data-name="ibuprofen"
+            data-category="danger"
+        >
+
+            <div class="badge">
+                QUESTIONABLE
+            </div>
+
+            <div class="product-image">
+                💊
+            </div>
+
+            <h3>
+                Ibuprofen
+            </h3>
+
+            <p class="description">
+                A parody listing. Not actually for sale here.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                $12.99
+            </div>
+
+            <div class="delivery">
+                ✓ Fictional product listing
+            </div>
+
+            <div class="scam">
+                Scam Score: 85/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:85%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('Ibuprofen',12.99)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 16 -->
+
+        <div
+            class="product"
+            data-name="wifi in a jar"
+            data-category="tech"
+        >
+
+            <div class="badge">
+                NEW
+            </div>
+
+            <div class="product-image">
+                📡
+            </div>
+
+            <h3>
+                Wi-Fi In A Jar
+            </h3>
+
+            <p class="description">
+                Open jar to release wireless internet.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                $69.99
+            </div>
+
+            <div class="delivery">
+                ✓ No router required*
+            </div>
+
+            <div class="scam">
+                Scam Score: 99/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:99%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('Wi-Fi In A Jar',69.99)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 17 -->
+
+        <div
+            class="product"
+            data-name="wireless ethernet cable"
+            data-category="tech"
+        >
+
+            <div class="badge">
+                WIRELESS
+            </div>
+
+            <div class="product-image">
+                📶
+            </div>
+
+            <h3>
+                Wireless Ethernet Cable
+            </h3>
+
+            <p class="description">
+                Ethernet cable with absolutely no wires.
+            </p>
+
+            <div class="stars">
+                ★☆☆☆☆
+            </div>
+
+            <div class="price">
+                $119.99
+            </div>
+
+            <div class="delivery">
+                ✓ Delivered wirelessly
+            </div>
+
+            <div class="scam">
+                Scam Score: 100/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:100%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('Wireless Ethernet Cable',119.99)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 18 -->
+
+        <div
+            class="product"
+            data-name="bluetooth rock"
+            data-category="tech"
+        >
+
+            <div class="badge">
+                BLUETOOTH
+            </div>
+
+            <div class="product-image">
+                🪨
+            </div>
+
+            <h3>
+                Bluetooth Rock
+            </h3>
+
+            <p class="description">
+                Pairs with absolutely nothing.
+            </p>
+
+            <div class="stars">
+                ★★★☆☆
+            </div>
+
+            <div class="price">
+                $49.99
+            </div>
+
+            <div class="delivery">
+                ✓ Rock included
+            </div>
+
+            <div class="scam">
+                Scam Score: 98/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:98%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('Bluetooth Rock',49.99)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 19 -->
+
+        <div
+            class="product"
+            data-name="smart spoon"
+            data-category="home"
+        >
+
+            <div class="badge">
+                SMART
+            </div>
+
+            <div class="product-image">
+                🥄
+            </div>
+
+            <h3>
+                Smart Spoon Pro Max Ultra
+            </h3>
+
+            <p class="description">
+                The spoon knows what you're eating.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                $299.99
+            </div>
+
+            <div class="delivery">
+                ✓ AI-powered scooping
+            </div>
+
+            <div class="scam">
+                Scam Score: 92/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:92%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('Smart Spoon Pro Max Ultra',299.99)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 20 -->
+
+        <div
+            class="product"
+            data-name="left sock"
+            data-category="home"
+        >
+
+            <div class="badge">
+                SINGLE
+            </div>
+
+            <div class="product-image">
+                🧦
+            </div>
+
+            <h3>
+                Premium Left Sock
+            </h3>
+
+            <p class="description">
+                Right sock sold separately. Very separately.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                $24.99
+            </div>
+
+            <div class="delivery">
+                ✓ Left foot approved
+            </div>
+
+            <div class="scam">
+                Scam Score: 90/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:90%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('Premium Left Sock',24.99)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 21 -->
+
+        <div
+            class="product"
+            data-name="square circle"
+            data-category="weird"
+        >
+
+            <div class="badge">
+                IMPOSSIBLE
+            </div>
+
+            <div class="product-image">
+                🔵
+            </div>
+
+            <h3>
+                Square Circle
+            </h3>
+
+            <p class="description">
+                Mathematicians hate this product.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                $1,234.56
+            </div>
+
+            <div class="delivery">
+                ✓ Geometry not included
+            </div>
+
+            <div class="scam">
+                Scam Score: 97/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:97%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('Square Circle',1234.56)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 22 -->
+
+        <div
+            class="product"
+            data-name="bottled darkness"
+            data-category="weird"
+        >
+
+            <div class="badge">
+                DARK
+            </div>
+
+            <div class="product-image">
+                🌑
+            </div>
+
+            <h3>
+                Bottled Darkness
+            </h3>
+
+            <p class="description">
+                We put darkness into a bottle. Probably.
+            </p>
+
+            <div class="stars">
+                ★★★★☆
+            </div>
+
+            <div class="price">
+                $66.66
+            </div>
+
+            <div class="delivery">
+                ✓ Do not open at night
+            </div>
+
+            <div class="scam">
+                Scam Score: 94/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:94%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('Bottled Darkness',66.66)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 23 -->
+
+        <div
+            class="product"
+            data-name="air guitar"
+            data-category="weird"
+        >
+
+            <div class="badge">
+                INVISIBLE
+            </div>
+
+            <div class="product-image">
+                🎸
+            </div>
+
+            <h3>
+                Premium Air Guitar
+            </h3>
+
+            <p class="description">
+                Includes absolutely no guitar.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                $39.39
+            </div>
+
+            <div class="delivery">
+                ✓ Ships immediately because nothing ships
+            </div>
+
+            <div class="scam">
+                Scam Score: 91/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:91%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('Premium Air Guitar',39.39)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 24 -->
+
+        <div
+            class="product"
+            data-name="rocking chair for ants"
+            data-category="home"
+        >
+
+            <div class="badge">
+                TINY
+            </div>
+
+            <div class="product-image">
+                🐜
+            </div>
+
+            <h3>
+                Rocking Chair For Ants
+            </h3>
+
+            <p class="description">
+                Fits most ants. Some ants prefer sofas.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                $14.99
+            </div>
+
+            <div class="delivery">
+                ✓ Tiny shipping
+            </div>
+
+            <div class="scam">
+                Scam Score: 82/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:82%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('Rocking Chair For Ants',14.99)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 25 -->
+
+        <div
+            class="product"
+            data-name="cold toast"
+            data-category="food"
+        >
+
+            <div class="badge">
+                FROZEN
+            </div>
+
+            <div class="product-image">
+                🍞
+            </div>
+
+            <h3>
+                Cold Toast
+            </h3>
+
+            <p class="description">
+                Toast that gave up.
+            </p>
+
+            <div class="stars">
+                ★★☆☆☆
+            </div>
+
+            <div class="price">
+                $3.99
+            </div>
+
+            <div class="delivery">
+                ✓ Served disappointingly cold
+            </div>
+
+            <div class="scam">
+                Scam Score: 84/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:84%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('Cold Toast',3.99)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 26 -->
+
+        <div
+            class="product"
+            data-name="invisible water"
+            data-category="food"
+        >
+
+            <div class="badge">
+                0 CALORIES
+            </div>
+
+            <div class="product-image">
+                💧
+            </div>
+
+            <h3>
+                Invisible Water
+            </h3>
+
+            <p class="description">
+                Hydration you cannot see.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                $19.99
+            </div>
+
+            <div class="delivery">
+                ✓ Bottle may appear empty
+            </div>
+
+            <div class="scam">
+                Scam Score: 100/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:100%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('Invisible Water',19.99)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 27 -->
+
+        <div
+            class="product"
+            data-name="wifi potato"
+            data-category="tech"
+        >
+
+            <div class="badge">
+                POTATO TECH
+            </div>
+
+            <div class="product-image">
+                🥔
+            </div>
+
+            <h3>
+                Wi-Fi Potato Router
+            </h3>
+
+            <p class="description">
+                Internet powered by potato.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                $89.99
+            </div>
+
+            <div class="delivery">
+                ✓ No Ethernet. No problem.
+            </div>
+
+            <div class="scam">
+                Scam Score: 99/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:99%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('Wi-Fi Potato Router',89.99)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 28 -->
+
+        <div
+            class="product"
+            data-name="professional rock"
+            data-category="home"
+        >
+
+            <div class="badge">
+                PRO
+            </div>
+
+            <div class="product-image">
+                🪨
+            </div>
+
+            <h3>
+                Professional Rock
+            </h3>
+
+            <p class="description">
+                More professional than a regular rock.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                $399.99
+            </div>
+
+            <div class="delivery">
+                ✓ Professionally rocky
+            </div>
+
+            <div class="scam">
+                Scam Score: 95/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:95%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('Professional Rock',399.99)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 29 -->
+
+        <div
+            class="product"
+            data-name="subscription to nothing"
+            data-category="weird"
+        >
+
+            <div class="badge">
+                SUBSCRIBE
+            </div>
+
+            <div class="product-image">
+                🫥
+            </div>
+
+            <h3>
+                Monthly Subscription To Nothing
+            </h3>
+
+            <p class="description">
+                Receive nothing every month. Forever.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                $9.99
+            </div>
+
+            <div class="delivery">
+                ✓ Nothing delivered monthly
+            </div>
+
+            <div class="scam">
+                Scam Score: 100/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:100%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('Monthly Subscription To Nothing',9.99)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- 30 -->
+
+        <div
+            class="product"
+            data-name="certified real rock"
+            data-category="weird"
+        >
+
+            <div class="badge">
+                CERTIFIED
+            </div>
+
+            <div class="product-image">
+                💎
+            </div>
+
+            <h3>
+                Certified Real Rock
+            </h3>
+
+            <p class="description">
+                We paid someone to certify that it is a rock.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                $1,999.99
+            </div>
+
+            <div class="delivery">
+                ✓ Comes with paper
+            </div>
+
+            <div class="scam">
+                Scam Score: 97/100
+
+                <div class="scam-bar">
+                    <div
+                        class="scam-fill"
+                        style="width:97%"
+                    ></div>
+                </div>
+            </div>
+
+            <button
+                onclick="addToCart('Certified Real Rock',1999.99)"
+            >
+                Add to Cart
+            </button>
+
+        </div>
+
+
     </div>
+
+
+    <!-- =========================
+         SECRET SECTION
+    ========================= -->
+
+    <section
+        class="secret-section"
+        id="secretProducts"
+    >
+
+        <h2 class="secret-title">
+            🔓 SECRET SCAMAZON WAREHOUSE
+        </h2>
+
+        <p style="margin-bottom:25px;">
+            Congratulations. You weren't supposed to find this.
+        </p>
+
+
+        <div class="products">
+
+
+            <div
+                class="product"
+                data-name="forbidden product"
+            >
+
+                <div class="badge">
+                    FORBIDDEN
+                </div>
+
+                <div class="product-image">
+                    🗿
+                </div>
+
+                <h3>
+                    The Forbidden Product
+                </h3>
+
+                <p class="description">
+                    Nobody knows what this is.
+                </p>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+                    $0.00
+                </div>
+
+                <div class="scam">
+                    Scam Score: ???/100
+                </div>
+
+                <button
+                    onclick="addToCart('The Forbidden Product',0)"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <div
+                class="product"
+                data-name="empty box"
+            >
+
+                <div class="badge">
+                    ULTRA SECRET
+                </div>
+
+                <div class="product-image">
+                    📦
+                </div>
+
+                <h3>
+                    Empty Box
+                </h3>
+
+                <p class="description">
+                    Congratulations! You bought an empty box.
+                </p>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+                    $999.99
+                </div>
+
+                <div class="scam">
+                    Scam Score: 999/100
+                </div>
+
+                <button
+                    onclick="addToCart('Empty Box',999.99)"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <div
+                class="product"
+                data-name="definitely not secret"
+            >
+
+                <div class="badge">
+                    🤫 SECRET
+                </div>
+
+                <div class="product-image">
+                    👁️
+                </div>
+
+                <h3>
+                    Definitely Not A Secret
+                </h3>
+
+                <p class="description">
+                    There is absolutely nothing suspicious here.
+                </p>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+                    $6.66
+                </div>
+
+                <div class="scam">
+                    Scam Score: 100/100
+                </div>
+
+                <button
+                    onclick="addToCart('Definitely Not A Secret',6.66)"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <div
+                class="product"
+                data-name="developers lunch"
+            >
+
+                <div class="badge">
+                    CLASSIFIED
+                </div>
+
+                <div class="product-image">
+                    🍕
+                </div>
+
+                <h3>
+                    Developer's Lunch
+                </h3>
+
+                <p class="description">
+                    One cold slice of pizza and three energy drinks.
+                </p>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+                    $404.04
+                </div>
+
+                <div class="scam">
+                    Scam Score: 404/100
+                </div>
+
+                <button
+                    onclick="addToCart('Developer Lunch',404.04)"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
 </div>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
-    <h2>SCAMAZON PRIME™</h2>
-    <p>We sell products so questionable that even our lawyers are confused.</p>
+
+    <h2>
+        SCAMAZON PRIME™
+    </h2>
+
+    <p>
+        We sell products so questionable
+        that even our lawyers are confused.
+    </p>
+
     <br>
+
     <small>
-        *Prime delivery may take between 2 minutes and 47 years.
+        *Prime delivery may take between
+        2 minutes and 47 years.
         Results may vary. Probably.
     </small>
+
+    <br><br>
+
+    <small>
+        🔐 There may be secrets hidden on this website.
+    </small>
+
 </footer>
 
 
-<!-- CART -->
-<div class="cart-panel" id="cartPanel">
+<!-- =========================
+     CART
+========================= -->
+
+<div
+    class="cart-panel"
+    id="cartPanel"
+>
 
     <div class="cart-header">
-        <h2>Your Cart 🛒</h2>
-        <span class="close" onclick="toggleCart()">×</span>
+
+        <h2>
+            Your Cart 🛒
+        </h2>
+
+        <span
+            class="close"
+            onclick="toggleCart()"
+        >
+            ×
+        </span>
+
     </div>
+
 
     <div id="cartItems">
-        <p>Your cart is suspiciously empty.</p>
+
+        <p>
+            Your cart is suspiciously empty.
+        </p>
+
     </div>
 
-    <h2 id="cartTotal">$0.00</h2>
 
-    <button class="checkout" onclick="checkout()">
+    <h2 id="cartTotal">
+        $0.00
+    </h2>
+
+
+    <button
+        class="checkout"
+        onclick="checkout()"
+    >
         BUY EVERYTHING
     </button>
 
 </div>
 
 
-<!-- MODAL -->
-<div class="modal" id="modal">
+<!-- =========================
+     CHECKOUT MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="modal"
+>
 
     <div class="modal-content">
 
-        <h2>🎉 CONGRATULATIONS!</h2>
+        <h2>
+            🎉 CONGRATULATIONS!
+        </h2>
 
         <p>
             You have successfully purchased...
@@ -678,23 +2900,55 @@ footer h2 {
 
         <br>
 
-        <strong>A SCAM.</strong>
+        <strong>
+            A SCAM.
+        </strong>
+
+        <br><br>
 
         <p>
-            Your imaginary package will arrive sometime
-            between tomorrow and 200 years after you die.
+            Your imaginary package will arrive
+            sometime between tomorrow and
+            200 years after you die.
         </p>
 
-        <button onclick="closeModal()">Okay, I guess</button>
+        <button onclick="closeModal()">
+            Okay, I guess
+        </button>
 
     </div>
 
 </div>
 
 
+<!-- =========================
+     SECRET POPUP
+========================= -->
+
+<div
+    class="secret-popup"
+    id="secretPopup"
+>
+    <strong id="secretPopupTitle">
+        SECRET UNLOCKED!
+    </strong>
+
+    <br>
+
+    <span id="secretPopupText">
+        You found something suspicious.
+    </span>
+</div>
+
+
 <script>
 
+/* =========================
+   CART
+========================= */
+
 let cart = [];
+
 
 function addToCart(name, price) {
 
@@ -705,53 +2959,83 @@ function addToCart(name, price) {
 
     updateCart();
 
-    document.getElementById("cartPanel")
+    document
+        .getElementById("cartPanel")
         .classList.add("open");
 }
 
 
 function updateCart() {
 
-    const items = document.getElementById("cartItems");
-    const count = document.getElementById("cartCount");
-    const total = document.getElementById("cartTotal");
+    const items =
+        document.getElementById("cartItems");
 
-    count.textContent = cart.length;
+    const count =
+        document.getElementById("cartCount");
+
+    const total =
+        document.getElementById("cartTotal");
+
+    count.textContent =
+        cart.length;
+
 
     if (cart.length === 0) {
 
         items.innerHTML =
             "<p>Your cart is suspiciously empty.</p>";
 
-        total.textContent = "$0.00";
+        total.textContent =
+            "$0.00";
 
         return;
     }
 
+
     let html = "";
+
     let totalPrice = 0;
+
 
     cart.forEach((item, index) => {
 
         totalPrice += item.price;
 
+
         html += `
+
             <div class="cart-item">
-                <strong>${item.name}</strong>
+
+                <strong>
+                    ${item.name}
+                </strong>
+
                 <br>
+
                 $${item.price.toFixed(2)}
+
                 <br><br>
-                <button onclick="removeItem(${index})">
+
+                <button
+                    onclick="removeItem(${index})"
+                >
                     Remove
                 </button>
+
             </div>
+
         `;
+
     });
 
-    items.innerHTML = html;
+
+    items.innerHTML =
+        html;
+
 
     total.textContent =
-        "$" + totalPrice.toFixed(2);
+        "$" +
+        totalPrice.toFixed(2);
 }
 
 
@@ -771,6 +3055,10 @@ function toggleCart() {
 }
 
 
+/* =========================
+   CHECKOUT
+========================= */
+
 function checkout() {
 
     if (cart.length === 0) {
@@ -782,6 +3070,7 @@ function checkout() {
 
         return;
     }
+
 
     document
         .getElementById("modal")
@@ -797,6 +3086,10 @@ function closeModal() {
 }
 
 
+/* =========================
+   SCROLL
+========================= */
+
 function scrollToProducts() {
 
     document
@@ -807,193 +3100,426 @@ function scrollToProducts() {
 }
 
 
+/* =========================
+   SEARCH
+========================= */
+
 function searchProducts() {
 
     const search =
         document
         .getElementById("searchInput")
         .value
-        .toLowerCase();
+        .toLowerCase()
+        .trim();
+
 
     const products =
         document.querySelectorAll(".product");
 
+
     products.forEach(product => {
 
         const name =
-            product.dataset.name;
+            product.dataset.name || "";
+
 
         if (name.includes(search)) {
+
             product.style.display = "";
+
         } else {
+
             product.style.display = "none";
+
         }
 
     });
+
 }
 
 
 document
     .getElementById("searchInput")
-    .addEventListener("keypress", function(event) {
+    .addEventListener(
+        "keypress",
+        function(event) {
 
-        if (event.key === "Enter") {
-            searchProducts();
+            if (event.key === "Enter") {
+
+                searchProducts();
+
+            }
+
+        }
+    );
+
+
+/* =========================
+   CATEGORY FILTER
+========================= */
+
+function filterCategory(category) {
+
+    const products =
+        document.querySelectorAll(
+            "#products .product"
+        );
+
+
+    products.forEach(product => {
+
+        if (
+            category === "all" ||
+            product.dataset.category === category
+        ) {
+
+            product.style.display = "";
+
+        } else {
+
+            product.style.display = "none";
+
         }
 
     });
 
+}
 
-/* FAKE COUNTDOWN */
 
-let seconds = 9 * 60 * 60 + 59 * 60 + 59;
+/* =========================
+   FAKE COUNTDOWN
+========================= */
+
+let seconds =
+    9 * 60 * 60 +
+    59 * 60 +
+    59;
+
 
 function updateTimer() {
 
     let hours =
-        Math.floor(seconds / 3600);
+        Math.floor(
+            seconds / 3600
+        );
+
 
     let minutes =
-        Math.floor((seconds % 3600) / 60);
+        Math.floor(
+            (seconds % 3600) / 60
+        );
+
 
     let secs =
         seconds % 60;
 
-    document.getElementById("timer")
+
+    document
+        .getElementById("timer")
         .textContent =
-        String(hours).padStart(2, "0") + ":" +
-        String(minutes).padStart(2, "0") + ":" +
-        String(secs).padStart(2, "0");
+
+        String(hours).padStart(2,"0") +
+        ":" +
+
+        String(minutes).padStart(2,"0") +
+        ":" +
+
+        String(secs).padStart(2,"0");
+
 
     seconds--;
 
+
     if (seconds < 0) {
-        seconds = 9 * 60 * 60 + 59 * 60 + 59;
+
+        seconds =
+            9 * 60 * 60 +
+            59 * 60 +
+            59;
+
     }
+
 }
 
-setInterval(updateTimer, 1000);
+
+setInterval(
+    updateTimer,
+    1000
+);
 
 updateTimer();
 
-</script>
-<script>
+
+/* =========================
+   SECRET SYSTEM
+========================= */
+
 let logoClicks = 0;
-let logoTimer;
+
+let logoTimer = null;
+
+
+function showSecret(message) {
+
+    const popup =
+        document.getElementById(
+            "secretPopup"
+        );
+
+
+    document.getElementById(
+        "secretPopupTitle"
+    ).textContent =
+        "🔓 SECRET UNLOCKED!";
+
+
+    document.getElementById(
+        "secretPopupText"
+    ).textContent =
+        message;
+
+
+    popup.classList.add("show");
+
+
+    setTimeout(() => {
+
+        popup.classList.remove("show");
+
+    }, 3500);
+
+}
+
+
+function unlockSecrets() {
+
+    document
+        .getElementById("secretProducts")
+        .classList.add("unlocked");
+
+
+    showSecret(
+        "You found the forbidden Scamazon warehouse."
+    );
+
+
+    document
+        .getElementById("secretProducts")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+/* =========================
+   LOGO SECRET
+   CLICK 7 TIMES
+========================= */
 
 function secretLogoClick() {
+
     logoClicks++;
 
-    clearTimeout(logoTimer);
-    logoTimer = setTimeout(() => {
-        logoClicks = 0;
-    }, 2000);
+
+    clearTimeout(
+        logoTimer
+    );
+
+
+    logoTimer =
+        setTimeout(() => {
+
+            logoClicks = 0;
+
+        }, 2000);
+
 
     if (logoClicks >= 7) {
+
         logoClicks = 0;
 
-        alert("🤫 SECRET UNLOCKED!\n\nYou found the forbidden Scamazon warehouse.");
+        unlockSecrets();
 
-        const secret = document.getElementById("secret-products");
-
-        if (secret) {
-            secret.style.display = "grid";
-        }
     }
+
 }
-</script>
-<h1 onclick="secretLogoClick()" style="cursor:pointer;">
-    Scamazon Crime
-</h1>
-    <div id="secret-products" class="products" style="display:none;">
-
-    <div class="product">
-        <div class="badge">🤫 SECRET</div>
-
-        <div class="product-image">👁️</div>
-
-        <h3>Definitely Not A Secret</h3>
-
-        <div class="stars">★★★★★</div>
-
-        <div class="price">$6.66</div>
-
-        <p>There is absolutely nothing suspicious about this product.</p>
-
-        <div class="scam">
-            Scam Score: <strong>100/100</strong>
-        </div>
-
-        <button onclick="addToCart('Definitely Not A Secret', 6.66)">
-            Add to Cart
-        </button>
-    </div>
 
 
-    <div class="product">
-        <div class="badge">ULTRA SECRET</div>
+/* =========================
+   KEYBOARD SECRET
+   TYPE "SCAM"
+========================= */
 
-        <div class="product-image">📦</div>
-
-        <h3>Empty Box</h3>
-
-        <div class="stars">★★★★★</div>
-
-        <div class="price">$999.99</div>
-
-        <p>Congratulations! You bought an empty box.</p>
-
-        <div class="scam">
-            Scam Score: <strong>999/100</strong>
-        </div>
-
-        <button onclick="addToCart('Empty Box', 999.99)">
-            Add to Cart
-        </button>
-    </div>
-
-
-    <div class="product">
-        <div class="badge">⚠️ FORBIDDEN</div>
-
-        <div class="product-image">🗿</div>
-
-        <h3>The Forbidden Product</h3>
-
-        <div class="stars">★★★★★</div>
-
-        <div class="price">$0.00</div>
-
-        <p>You weren't supposed to find this.</p>
-
-        <div class="scam">
-            Scam Score: <strong>???/100</strong>
-        </div>
-
-        <button onclick="addToCart('The Forbidden Product', 0)">
-            Add to Cart
-        </button>
-    </div>
-<script>
 let secretCode = "";
-const secretPassword = "scam";
 
-document.addEventListener("keydown", function(event) {
-    secretCode += event.key.toLowerCase();
+const secretPassword =
+    "scam";
 
-    if (secretCode.length > secretPassword.length) {
-        secretCode = secretCode.slice(-secretPassword.length);
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        secretCode +=
+            event.key.toLowerCase();
+
+
+        if (
+            secretCode.length >
+            secretPassword.length
+        ) {
+
+            secretCode =
+                secretCode.slice(
+                    -secretPassword.length
+                );
+
+        }
+
+
+        if (
+            secretCode ===
+            secretPassword
+        ) {
+
+            unlockSecrets();
+
+            secretCode = "";
+
+        }
+
     }
+);
 
-    if (secretCode === secretPassword) {
-        document.getElementById("secret-products").style.display = "grid";
 
-        alert("🔓 SECRET SCAMAZON AREA UNLOCKED!");
-        secretCode = "";
+/* =========================
+   KONAMI CODE SECRET
+========================= */
+
+const konamiCode = [
+
+    "ArrowUp",
+    "ArrowUp",
+
+    "ArrowDown",
+    "ArrowDown",
+
+    "ArrowLeft",
+    "ArrowRight",
+
+    "ArrowLeft",
+    "ArrowRight",
+
+    "b",
+    "a"
+
+];
+
+
+let konamiPosition = 0;
+
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        const key =
+            event.key;
+
+
+        if (
+            key ===
+            konamiCode[konamiPosition]
+        ) {
+
+            konamiPosition++;
+
+
+            if (
+                konamiPosition ===
+                konamiCode.length
+            ) {
+
+                unlockSecrets();
+
+
+                showSecret(
+                    "THE KONAMI CODE WORKED. WHY?"
+                );
+
+
+                konamiPosition = 0;
+
+            }
+
+        } else {
+
+            konamiPosition = 0;
+
+        }
+
     }
-});
+);
+
+
+/* =========================
+   SECRET SEARCH
+========================= */
+
+document
+    .getElementById("searchInput")
+    .addEventListener(
+        "input",
+        function() {
+
+            const value =
+                this.value
+                .toLowerCase();
+
+
+            if (
+                value ===
+                "secret"
+            ) {
+
+                unlockSecrets();
+
+            }
+
+        }
+    );
+
+
+/* =========================
+   ESCAPE KEY
+========================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            document
+                .getElementById(
+                    "cartPanel"
+                )
+                .classList.remove(
+                    "open"
+                );
+
+            closeModal();
+
+        }
+
+    }
+);
+
 </script>
-</div>
+
 </body>
 </html>
-```
