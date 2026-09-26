@@ -974,7 +974,25 @@ function secretLogoClick() {
             Add to Cart
         </button>
     </div>
+<script>
+let secretCode = "";
+const secretPassword = "scam";
 
+document.addEventListener("keydown", function(event) {
+    secretCode += event.key.toLowerCase();
+
+    if (secretCode.length > secretPassword.length) {
+        secretCode = secretCode.slice(-secretPassword.length);
+    }
+
+    if (secretCode === secretPassword) {
+        document.getElementById("secret-products").style.display = "grid";
+
+        alert("🔓 SECRET SCAMAZON AREA UNLOCKED!");
+        secretCode = "";
+    }
+});
+</script>
 </div>
 </body>
 </html>
