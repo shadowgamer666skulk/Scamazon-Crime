@@ -1,0 +1,883 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scamazon Prime™</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eaeded;
+    color: #111;
+}
+
+/* HEADER */
+header {
+    background: #131921;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    color: #ff9900;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: white;
+}
+
+.search {
+    display: flex;
+    flex: 1;
+    max-width: 800px;
+}
+
+.search input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    font-size: 16px;
+}
+
+.search button {
+    background: #febd69;
+    border: none;
+    padding: 0 20px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.search button:hover {
+    background: #f3a847;
+}
+
+.nav {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.nav small {
+    display: block;
+    font-size: 11px;
+}
+
+.nav strong {
+    font-size: 14px;
+}
+
+.cart {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* PRIME BAR */
+.primebar {
+    background: #232f3e;
+    color: white;
+    padding: 9px 25px;
+    display: flex;
+    gap: 25px;
+    font-size: 14px;
+}
+
+.primebar span {
+    cursor: pointer;
+}
+
+.primebar span:hover {
+    color: #ff9900;
+}
+
+/* HERO */
+.hero {
+    min-height: 360px;
+    background:
+        linear-gradient(90deg, rgba(0,0,0,.8), rgba(0,0,0,.2)),
+        linear-gradient(135deg, #ff9900, #ff4500);
+    color: white;
+    padding: 70px 8%;
+    display: flex;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 85px);
+    line-height: .9;
+    max-width: 700px;
+}
+
+.hero p {
+    font-size: 22px;
+    margin: 25px 0;
+}
+
+.hero button {
+    padding: 15px 30px;
+    background: #ffd814;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hero button:hover {
+    background: #f7ca00;
+}
+
+/* WARNING */
+.warning {
+    background: #fff3cd;
+    border: 2px solid #ffcc00;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* CONTENT */
+.container {
+    max-width: 1400px;
+    margin: auto;
+    padding: 25px;
+}
+
+.section-title {
+    font-size: 28px;
+    margin-bottom: 18px;
+}
+
+/* PRODUCTS */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+}
+
+.product {
+    background: white;
+    padding: 18px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.15);
+    position: relative;
+    transition: .2s;
+}
+
+.product:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px rgba(0,0,0,.2);
+}
+
+.product-image {
+    height: 190px;
+    background: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 90px;
+    margin-bottom: 15px;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #cc0c39;
+    color: white;
+    padding: 5px 8px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.product h3 {
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.stars {
+    color: #ff9900;
+    margin-bottom: 8px;
+}
+
+.price {
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #777;
+    font-size: 14px;
+}
+
+.delivery {
+    color: #007600;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.product button {
+    width: 100%;
+    padding: 11px;
+    border: none;
+    border-radius: 20px;
+    background: #ffd814;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.product button:hover {
+    background: #f7ca00;
+}
+
+/* SCAM SCORE */
+.scam {
+    margin: 12px 0;
+    font-size: 12px;
+}
+
+.scam-bar {
+    height: 10px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.scam-fill {
+    height: 100%;
+    background: #d00000;
+}
+
+/* DEALS */
+.deals {
+    background: white;
+    padding: 25px;
+    margin: 25px 0;
+    border-radius: 5px;
+}
+
+.timer {
+    color: #b12704;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* CART */
+.cart-panel {
+    position: fixed;
+    right: -420px;
+    top: 0;
+    width: 400px;
+    max-width: 95%;
+    height: 100vh;
+    background: white;
+    z-index: 500;
+    box-shadow: -5px 0 20px rgba(0,0,0,.3);
+    padding: 25px;
+    transition: .3s;
+    overflow-y: auto;
+}
+
+.cart-panel.open {
+    right: 0;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.close {
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.cart-item {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.checkout {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background: #ff9900;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    width: 500px;
+    max-width: 90%;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.modal-content h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.modal-content button {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: #ffd814;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    background: #131921;
+    color: white;
+    text-align: center;
+    padding: 40px;
+    margin-top: 40px;
+}
+
+footer h2 {
+    color: #ff9900;
+    margin-bottom: 10px;
+}
+
+@media(max-width:700px) {
+    header {
+        flex-wrap: wrap;
+    }
+
+    .search {
+        order: 3;
+        flex-basis: 100%;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .hero {
+        padding: 50px 25px;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        SCAMAZON <span>PRIME™</span>
+    </div>
+
+    <div class="search">
+        <input id="searchInput" type="text"
+               placeholder="Search for something suspicious...">
+        <button onclick="searchProducts()">🔍</button>
+    </div>
+
+    <div class="nav">
+        <div>
+            <small>Hello, definitely real customer</small>
+            <strong>Account & Lists</strong>
+        </div>
+
+        <div>
+            <small>Returns</small>
+            <strong>& Orders</strong>
+        </div>
+
+        <div class="cart" onclick="toggleCart()">
+            🛒 <span id="cartCount">0</span>
+        </div>
+    </div>
+</header>
+
+<div class="primebar">
+    <span>☰ All</span>
+    <span>Today's Deals</span>
+    <span>Customer Service</span>
+    <span>Registry</span>
+    <span>Gift Cards</span>
+    <span>Sell</span>
+</div>
+
+<section class="hero">
+    <div>
+        <h1>WELCOME TO<br>SCAMAZON.</h1>
+        <p>Everything you need. Probably.</p>
+        <button onclick="scrollToProducts()">SHOP THE QUESTIONABLE DEALS →</button>
+    </div>
+</section>
+
+<div class="warning">
+    ⚠️ WARNING: Scamazon Prime is not responsible for lost money, dignity, or common sense.
+</div>
+
+<div class="container">
+
+    <div class="deals">
+        <h2 class="section-title">🔥 DEALS THAT DEFINITELY WON'T COME BACK</h2>
+        <p>These deals disappear when the timer reaches zero.</p>
+        <div class="timer" id="timer">09:59:59</div>
+    </div>
+
+    <h2 class="section-title" id="productsTitle">
+        Highly Questionable Products
+    </h2>
+
+    <div class="products" id="products">
+
+        <div class="product" data-name="invisible gaming chair">
+            <div class="badge">97% OFF</div>
+            <div class="product-image">🪑</div>
+
+            <h3>Invisible Gaming Chair™</h3>
+
+            <div class="stars">★★★★★</div>
+
+            <div class="price">$4.99</div>
+            <div class="old-price">$199.99</div>
+
+            <div class="delivery">
+                ✓ FREE Prime Delivery*
+            </div>
+
+            <div class="scam">
+                Scam Score: 98/100
+                <div class="scam-bar">
+                    <div class="scam-fill" style="width:98%"></div>
+                </div>
+            </div>
+
+            <button onclick="addToCart('Invisible Gaming Chair™', 4.99)">
+                Add to Cart
+            </button>
+        </div>
+
+
+        <div class="product" data-name="usb c usb c cable">
+            <div class="badge">HOT</div>
+            <div class="product-image">🔌</div>
+
+            <h3>USB-C USB-C USB-C Cable</h3>
+
+            <div class="stars">★★★★☆</div>
+
+            <div class="price">$39.99</div>
+
+            <div class="delivery">
+                ✓ Arrives yesterday
+            </div>
+
+            <div class="scam">
+                Scam Score: 76/100
+                <div class="scam-bar">
+                    <div class="scam-fill" style="width:76%"></div>
+                </div>
+            </div>
+
+            <button onclick="addToCart('USB-C USB-C USB-C Cable', 39.99)">
+                Add to Cart
+            </button>
+        </div>
+
+
+        <div class="product" data-name="mystery box">
+            <div class="badge">MYSTERY</div>
+            <div class="product-image">📦</div>
+
+            <h3>Mystery Box™</h3>
+
+            <div class="stars">★★★★★</div>
+
+            <div class="price">$0.01</div>
+            <div class="old-price">$999.99</div>
+
+            <div class="delivery">
+                Shipping: $49.99
+            </div>
+
+            <div class="scam">
+                Scam Score: 100/100
+                <div class="scam-bar">
+                    <div class="scam-fill" style="width:100%"></div>
+                </div>
+            </div>
+
+            <button onclick="addToCart('Mystery Box™', 0.01)">
+                Add to Cart
+            </button>
+        </div>
+
+
+        <div class="product" data-name="premium air">
+            <div class="badge">FRESH</div>
+            <div class="product-image">💨</div>
+
+            <h3>Premium Air — 16 oz</h3>
+
+            <div class="stars">★★★★★</div>
+
+            <div class="price">$12.99</div>
+
+            <div class="delivery">
+                ✓ Freshly harvested
+            </div>
+
+            <div class="scam">
+                Scam Score: 91/100
+                <div class="scam-bar">
+                    <div class="scam-fill" style="width:91%"></div>
+                </div>
+            </div>
+
+            <button onclick="addToCart('Premium Air — 16 oz', 12.99)">
+                Add to Cart
+            </button>
+        </div>
+
+
+        <div class="product" data-name="rtx 9090 graphics card">
+            <div class="badge">100% REAL*</div>
+            <div class="product-image">🎮</div>
+
+            <h3>Definitely Real RTX 9090</h3>
+
+            <div class="stars">★★☆☆☆</div>
+
+            <div class="price">$6.99</div>
+
+            <div class="delivery">
+                ✓ GPU-shaped object included
+            </div>
+
+            <div class="scam">
+                Scam Score: 99/100
+                <div class="scam-bar">
+                    <div class="scam-fill" style="width:99%"></div>
+                </div>
+            </div>
+
+            <button onclick="addToCart('Definitely Real RTX 9090', 6.99)">
+                Add to Cart
+            </button>
+        </div>
+
+
+        <div class="product" data-name="potato">
+            <div class="badge">LIMITED</div>
+            <div class="product-image">🥔</div>
+
+            <h3>One (1) Premium Potato</h3>
+
+            <div class="stars">★★★★★</div>
+
+            <div class="price">$899.99</div>
+
+            <div class="delivery">
+                ✓ Potato delivered tomorrow
+            </div>
+
+            <div class="scam">
+                Scam Score: 87/100
+                <div class="scam-bar">
+                    <div class="scam-fill" style="width:87%"></div>
+                </div>
+            </div>
+
+            <button onclick="addToCart('Premium Potato', 899.99)">
+                Add to Cart
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <h2>SCAMAZON PRIME™</h2>
+    <p>We sell products so questionable that even our lawyers are confused.</p>
+    <br>
+    <small>
+        *Prime delivery may take between 2 minutes and 47 years.
+        Results may vary. Probably.
+    </small>
+</footer>
+
+
+<!-- CART -->
+<div class="cart-panel" id="cartPanel">
+
+    <div class="cart-header">
+        <h2>Your Cart 🛒</h2>
+        <span class="close" onclick="toggleCart()">×</span>
+    </div>
+
+    <div id="cartItems">
+        <p>Your cart is suspiciously empty.</p>
+    </div>
+
+    <h2 id="cartTotal">$0.00</h2>
+
+    <button class="checkout" onclick="checkout()">
+        BUY EVERYTHING
+    </button>
+
+</div>
+
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+
+    <div class="modal-content">
+
+        <h2>🎉 CONGRATULATIONS!</h2>
+
+        <p>
+            You have successfully purchased...
+        </p>
+
+        <br>
+
+        <strong>ABSOLUTELY NOTHING.</strong>
+
+        <p>
+            Your imaginary package will arrive sometime
+            between tomorrow and never.
+        </p>
+
+        <button onclick="closeModal()">Okay, I guess</button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+let cart = [];
+
+function addToCart(name, price) {
+
+    cart.push({
+        name: name,
+        price: price
+    });
+
+    updateCart();
+
+    document.getElementById("cartPanel")
+        .classList.add("open");
+}
+
+
+function updateCart() {
+
+    const items = document.getElementById("cartItems");
+    const count = document.getElementById("cartCount");
+    const total = document.getElementById("cartTotal");
+
+    count.textContent = cart.length;
+
+    if (cart.length === 0) {
+
+        items.innerHTML =
+            "<p>Your cart is suspiciously empty.</p>";
+
+        total.textContent = "$0.00";
+
+        return;
+    }
+
+    let html = "";
+    let totalPrice = 0;
+
+    cart.forEach((item, index) => {
+
+        totalPrice += item.price;
+
+        html += `
+            <div class="cart-item">
+                <strong>${item.name}</strong>
+                <br>
+                $${item.price.toFixed(2)}
+                <br><br>
+                <button onclick="removeItem(${index})">
+                    Remove
+                </button>
+            </div>
+        `;
+    });
+
+    items.innerHTML = html;
+
+    total.textContent =
+        "$" + totalPrice.toFixed(2);
+}
+
+
+function removeItem(index) {
+
+    cart.splice(index, 1);
+
+    updateCart();
+}
+
+
+function toggleCart() {
+
+    document
+        .getElementById("cartPanel")
+        .classList.toggle("open");
+}
+
+
+function checkout() {
+
+    if (cart.length === 0) {
+
+        alert(
+            "Your cart is empty!\n\n" +
+            "Just like our warehouse."
+        );
+
+        return;
+    }
+
+    document
+        .getElementById("modal")
+        .style.display = "flex";
+}
+
+
+function closeModal() {
+
+    document
+        .getElementById("modal")
+        .style.display = "none";
+}
+
+
+function scrollToProducts() {
+
+    document
+        .getElementById("products")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+}
+
+
+function searchProducts() {
+
+    const search =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    const products =
+        document.querySelectorAll(".product");
+
+    products.forEach(product => {
+
+        const name =
+            product.dataset.name;
+
+        if (name.includes(search)) {
+            product.style.display = "";
+        } else {
+            product.style.display = "none";
+        }
+
+    });
+}
+
+
+document
+    .getElementById("searchInput")
+    .addEventListener("keypress", function(event) {
+
+        if (event.key === "Enter") {
+            searchProducts();
+        }
+
+    });
+
+
+/* FAKE COUNTDOWN */
+
+let seconds = 9 * 60 * 60 + 59 * 60 + 59;
+
+function updateTimer() {
+
+    let hours =
+        Math.floor(seconds / 3600);
+
+    let minutes =
+        Math.floor((seconds % 3600) / 60);
+
+    let secs =
+        seconds % 60;
+
+    document.getElementById("timer")
+        .textContent =
+        String(hours).padStart(2, "0") + ":" +
+        String(minutes).padStart(2, "0") + ":" +
+        String(secs).padStart(2, "0");
+
+    seconds--;
+
+    if (seconds < 0) {
+        seconds = 9 * 60 * 60 + 59 * 60 + 59;
+    }
+}
+
+setInterval(updateTimer, 1000);
+
+updateTimer();
+
+</script>
+
+</body>
+</html>
+```
